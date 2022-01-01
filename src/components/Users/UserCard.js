@@ -23,5 +23,3 @@ UserCard.propTypes = {
 }
 
 export default UserCard
-
-//add proptypes - don't need default
