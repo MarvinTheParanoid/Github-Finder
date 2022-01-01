@@ -1,5 +1,6 @@
 // import logo from './logo.svg';
 import React, { Component } from 'react';
+import axios from 'axios';
 import Navbar from './components/layout/Navbar';
 import Users from './components/Users/Users';
 
@@ -10,13 +11,17 @@ import './App.css';
 
 class App extends Component {
 
+  // harcoded user details
   state = {
-    userList : [
-      {id : 1, username : "mojombo", avatar : "https://avatars.githubusercontent.com/u/1?v=4", url : "https://github.com/mojombo"},
-      {id : 2, username : "defunkt", avatar : "https://avatars.githubusercontent.com/u/2?v=4", url : "https://github.com/defunkt"},
-      {id : 3, username : "pjhyett", avatar : "https://avatars.githubusercontent.com/u/3?v=4", url : "https://github.com/pjhyett"},
-      {id : 4, username : "wycats", avatar : "https://avatars.githubusercontent.com/u/4?v=4", url : "https://github.com/wycats"},
-    ],
+    userList : [],
+    loading : false,
+  };
+
+  async componentDidMount () {
+    this.setState({ loading : true});
+    const response = await axios.get('https://api.github.com/users'); //need try catch
+    this.setState({userList : response.data, loading : false});
+    console.log(response.data[0]);
   };
 
   render () {
@@ -24,7 +29,7 @@ class App extends Component {
       <div className="App">
         <Navbar title="Github Finder" faIcon={faGithub} />
         <div className='container'>
-          <Users userList = {this.state.userList}/>
+          <Users loading={this.state.loading} userList={this.state.userList}/>
         </div>
       </div>
     )
