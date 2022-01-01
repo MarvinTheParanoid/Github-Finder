@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCompass } from '@fortawesome/free-solid-svg-icons';
+
 function Navbar ({title = "Navbar", faIcon = faCompass}) {
 
   return (
@@ -16,6 +17,6 @@ function Navbar ({title = "Navbar", faIcon = faCompass}) {
 Navbar.propTypes = {
   title : PropTypes.string.isRequired,
   faIcon : PropTypes.object.isRequired,
-}
+};
 
 export default Navbar

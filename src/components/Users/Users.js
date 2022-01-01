@@ -1,17 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import UserCard from './UserCard';
-class Users extends Component {
+function Users ({userList}) {
+  return (
+    <div className = "grid-3">
+      {userList.map(user => {
+        return <UserCard key={user.id} user={user} />
+      })}    
+    </div>
+  )
+}
 
-    render() {
-      return (
-          <div className = "grid-3">
-            {this.props.userList.map(user => {
-              return <UserCard key={user.id} user={user} />
-            })}
-              
-          </div>
-      )
-    }
+Users.protoTypes = {
+  userList : PropTypes.object,
 }
 
 export default Users
