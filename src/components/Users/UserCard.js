@@ -2,18 +2,8 @@ import React, { Component } from 'react';
 
 class UserCard extends Component {
 
-    constructor () {
-        super();
-        this.state = {
-            id : 49049363,
-            username : "MarvinTheParanoid",
-            avatar : "https://avatars.githubusercontent.com/u/49049363?v=4",
-            url : "https://github.com/MarvinTheParanoid",
-        };
-    }; 
-
     render() {
-        const {username, avatar, url} = this.state;
+        const {username, avatar, url} = this.props.user;
         return (
             <div className = "card text-center">
                 <img src={avatar} alt={`Avatar for ${username}`} className = "round-img" style={{width : '60px'}}/>
