@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-function UserCard ({user}) {
-  const {username, avatar, url} = user;
+function UserCard ({user : {username, avatar, url}}) {
+  // const {username, avatar, url} = user;
   return (
     <div className = "card text-center">
         <img src={avatar} alt={`Avatar for ${username}`} className = "round-img" style={{width : '60px'}}/>
@@ -13,4 +14,14 @@ function UserCard ({user}) {
   )
 };
 
+UserCard.propTypes = {
+  user : PropTypes.shape({
+    username : PropTypes.string.isRequired,
+    avatar : PropTypes.string.isRequired,
+    url : PropTypes.string.isRequired,
+  })
+}
+
 export default UserCard
+
+//add proptypes - don't need default
