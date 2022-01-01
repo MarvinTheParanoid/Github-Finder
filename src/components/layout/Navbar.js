@@ -1,29 +1,21 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCompass } from '@fortawesome/free-solid-svg-icons';
+function Navbar ({title = "Navbar", faIcon = faCompass}) {
 
-class Navbar extends Component {
+  return (
+    <nav className="navbar bg-primary">
+      <span>
+        <FontAwesomeIcon icon={faIcon} /> {title}
+      </span>
+    </nav>
+  )
+};
 
-  static defaultProps = {
-    title : 'NavBar',
-    faIcon : faCompass,
-  };
-
-  static propTypes = {
-    title : PropTypes.string.isRequired,
-    faIcon : PropTypes.object.isRequired,
-  };
-
-  render() {
-      return (
-          <nav className="navbar bg-primary">
-            <span>
-              <FontAwesomeIcon icon={this.props.faIcon} /> {this.props.title}
-            </span>
-          </nav>
-      )
-  }
+Navbar.propTypes = {
+  title : PropTypes.string.isRequired,
+  faIcon : PropTypes.object.isRequired,
 }
 
 export default Navbar

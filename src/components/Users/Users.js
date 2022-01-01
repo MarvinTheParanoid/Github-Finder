@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import UserCard from './UserCard';
-
 class Users extends Component {
 
     // harcoded users list
@@ -24,5 +23,3 @@ class Users extends Component {
 }
 
 export default Users
-
-
