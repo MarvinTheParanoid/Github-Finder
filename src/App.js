@@ -21,7 +21,6 @@ class App extends Component {
     this.setState({ loading : true});
     const response = await axios.get('https://api.github.com/users'); //need try catch
     this.setState({userList : response.data, loading : false});
-    console.log(response.data[0]);
   };
 
   render () {

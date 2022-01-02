@@ -412,3 +412,8 @@ table th {
     justify-content: center;
   }
 }
+
+/* Spinner Style */
+.spinner {
+  width: 100px;
+}
