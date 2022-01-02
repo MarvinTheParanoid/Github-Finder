@@ -7,7 +7,7 @@ function Spinner () {
 
   return (
     <div className='all-center'>
-      <FontAwesomeIcon icon={faCircleNotch} size='2x' color='grey' spin/>
+      <FontAwesomeIcon icon={faCircleNotch} size='2x' color='grey' className='spinner my-3'/>
     </div>
   )
 };
