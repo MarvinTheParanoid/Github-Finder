@@ -4,8 +4,6 @@ import PropTypes from 'prop-types';
 import UserCard from './UserCard';
 import Spinner from '../layout/Spinner';
 
-
-
 function Users ({userList, loading}) {
 
   if (loading) {

@@ -1,17 +1,15 @@
 // import logo from './logo.svg';
 import React, { Component } from 'react';
 import axios from 'axios';
+
 import Navbar from './components/layout/Navbar';
 import Users from './components/Users/Users';
 
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import './App.css';
 
-// title="Github Finder" faIcon={faGithub}
-
 class App extends Component {
 
-  // harcoded user details
   state = {
     userList : [],
     loading : false,
@@ -19,7 +17,9 @@ class App extends Component {
 
   async componentDidMount () {
     this.setState({ loading : true});
-    const response = await axios.get('https://api.github.com/users'); //need try catch
+    const url = 'https://api.github.com/users';
+    const auth = `client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secrect=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
+    const response = await axios.get(`${url}?${auth}`); //need try catch
     this.setState({userList : response.data, loading : false});
   };
 
