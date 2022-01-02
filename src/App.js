@@ -28,12 +28,17 @@ class App extends Component {
   };
 
   render () {
+    const { userList, loading } = this.state;
     return (
       <div className="App">
         <Navbar title="Github Finder" faIcon={faGithub} />
         <div className='container'>
-          <Search searchFunc={this.searchUsers.bind(this)} clearFunc={this.clearUsers.bind(this)}/>
-          <Users loading={this.state.loading} userList={this.state.userList}/>
+          <Search
+            searchFunc={this.searchUsers.bind(this)}
+            clearFunc={this.clearUsers.bind(this)}
+            showClear={userList.length > 0 ? true : false}
+          />
+          <Users loading={loading} userList={userList}/>
         </div>
       </div>
     )
