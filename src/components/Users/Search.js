@@ -23,10 +23,13 @@ class Search extends Component {
 
     render () {
         return (
-            <form onSubmit={this.formSubmit.bind(this)} className='form'>
-                <input type='text' name='text' placeholder='Search Users...' value={this.state.text} onChange={this.updateText.bind(this)}/>
-                <button type='submit' className='btn btn-dark btn-block'>Search</button>
-            </form>
+            <>
+                <form onSubmit={this.formSubmit.bind(this)} className='form-text'>
+                    <input type='text' name='text' placeholder='Search Users...' value={this.state.text} onChange={this.updateText.bind(this)}/>
+                    <button type='submit' className='btn btn-dark btn-block'>Search</button>
+                </form>
+                <button className='btn btn-light btn-block my' onClick={this.props.clearFunc}>Clear</button>
+            </>
         )
     }
 }
