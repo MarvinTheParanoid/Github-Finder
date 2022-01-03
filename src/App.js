@@ -19,10 +19,15 @@ class App extends Component {
 
   async searchUsers (text) {
     this.setState({ loading : true, alert : null});
-    const url = `https://api.github.com/search/users?q=${text}`;
-    const auth = `client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secrect=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
-    const response = await axios.get(`${url}&${auth}`);
-    this.setState({userList : response.data.items, loading : false});
+    try {
+      const url = `https://api.github.com/search/users?q=${text}`;
+      const auth = `client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secrect=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
+      const response = await axios.get(`${url}&${auth}`);
+      this.setState({userList : response.data.items, loading : false});
+    } catch (error) {
+      console.error(error);
+      this.clearUsers()
+    }
   };
 
   clearUsers () {
