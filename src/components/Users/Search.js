@@ -11,6 +11,7 @@ class Search extends Component {
         searchFunc : PropTypes.func.isRequired,
         clearFunc : PropTypes.func.isRequired,
         showClear : PropTypes.bool.isRequired,
+        alertFunc : PropTypes.func.isRequired,
     };
 
     updateText (e) {
@@ -21,6 +22,7 @@ class Search extends Component {
         e.preventDefault();
         this.props.searchFunc(this.state.text);
         this.setState({text : ''});
+        this.state.text === '' && this.props.alertFunc('Please enter a user\'s name...','light')
     };
 
     render () {
