@@ -1,17 +1,21 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import axios from 'axios';
-
+/* Pages */
+import About from './components/pages/About';
+/* Layout */
 import Navbar from './components/layout/Navbar';
 import Users from './components/Users/Users';
 import Search from './components/Users/Search';
 import Alert from './components/layout/Alert';
-
+/* Resources */
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import './App.css';
 
 class App extends Component {
 
   state = {
+    user : null,
     userList : [],
     loading : false,
     alert : null,
@@ -45,19 +49,28 @@ class App extends Component {
   render () {
     const { userList, loading } = this.state;
     return (
-      <div className="App">
-        <Navbar title="Github Finder" faIcon={faGithub} />
-        <div className='container'>
-          <Alert alert={this.state.alert} clearFunc={this.clearAlert.bind(this)}/>
-          <Search
-            searchFunc={this.searchUsers.bind(this)}
-            clearFunc={this.clearUsers.bind(this)}
-            showClear={userList.length > 0 ? true : false}
-            alertFunc={this.setAlert.bind(this)}
-          />
-          <Users loading={loading} userList={userList}/>
+      <Router>
+        <div className="App">
+          <Navbar title="Github Finder" faIcon={faGithub} />
+          <div className='container'>
+            <Routes>
+              <Route path="/" element={
+                <>
+                  <Alert alert={this.state.alert} clearFunc={this.clearAlert.bind(this)}/>
+                  <Search
+                    searchFunc={this.searchUsers.bind(this)}
+                    clearFunc={this.clearUsers.bind(this)}
+                    showClear={userList.length > 0 ? true : false}
+                    alertFunc={this.setAlert.bind(this)}
+                  />
+                  <Users loading={loading} userList={userList} />  
+                </>
+              } />
+              <Route path ="/about" element={<About text="test"/>} />
+            </Routes>
+          </div>
         </div>
-      </div>
+      </Router>
     )
   }
 }
