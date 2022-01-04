@@ -30,12 +30,19 @@ class Search extends Component {
         return (
             <>
                 <form onSubmit={this.formSubmit.bind(this)} className='form-text'>
-                    <input type='text' name='text' placeholder='Search Users...' value={this.state.text} onChange={this.updateText.bind(this)}/>
+                    <input 
+                        type='text'
+                        name='text'
+                        placeholder='Search Users...'
+                        value={this.state.text}
+                        onChange={this.updateText.bind(this)}
+                        onClick={(e) => e.target.select()}
+                    />
                     <button
                         type='submit'
                         className='btn btn-dark btn-block'
                         disabled={this.state.text === '' ? true : false}
-                        >Search</button>
+                    >Search</button>
                 </form>
                 {showClear && <button className='btn btn-light btn-block my' onClick={clearFunc}>Clear</button>}
             </>
