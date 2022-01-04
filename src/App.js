@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import axios from 'axios';
 /* Pages */
 import About from './components/pages/About';
+import UserDetails from './components/pages/UserDetails';
 /* Layout */
 import Navbar from './components/layout/Navbar';
 import Users from './components/Users/Users';
@@ -67,6 +68,7 @@ class App extends Component {
                 </>
               } />
               <Route path ="/about" element={<About text="test"/>} />
+              <Route path ="/users/:login" element={<UserDetails />} />
             </Routes>
           </div>
         </div>
@@ -79,3 +81,6 @@ export default App;
 
 // alert box not currently used
 // add more alert icon colours based on alert type
+// change to /user/:login and rename to UserDetails to User
+// catch errors
+  // show error component with back/home button
