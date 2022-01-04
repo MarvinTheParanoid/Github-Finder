@@ -64,7 +64,5 @@ class App extends Component {
 
 export default App;
 
-// stop spinner from going when error
-// stop clear button showing after successful search the error
 // add more alert icon colours based on alert type
 // change to disable the search button when text is empty

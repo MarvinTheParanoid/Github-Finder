@@ -280,6 +280,10 @@ img {
   color: #fff;
 }
 
+.btn-dark:disabled {
+  background-color: #cfcfcf;
+}
+
 .btn-danger,
 .bg-danger,
 .badge-danger,
