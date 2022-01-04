@@ -64,5 +64,5 @@ class App extends Component {
 
 export default App;
 
+// alert box not currently used
 // add more alert icon colours based on alert type
-// change to disable the search button when text is empty
